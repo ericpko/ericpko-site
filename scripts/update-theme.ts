@@ -2,7 +2,7 @@
 
 /**
  * Update theme from upstream repository
- * Usage: pnpm update-theme
+ * Usage: bun update-theme
  */
 
 import { execSync } from 'node:child_process'

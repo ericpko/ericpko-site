@@ -1,6 +1,6 @@
 version: 2
 updates:
-  # Enable npm (pnpm) dependency updates
+  # Enable npm (bun) dependency updates
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
