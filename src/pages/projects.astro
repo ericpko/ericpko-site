@@ -1,0 +1,19 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro'
+import ProjectList from '@/components/widgets/ProjectList.astro'
+import { getCollection } from 'astro:content'
+
+const projects = await getCollection('projects')
+// Sort projects by date, newest first
+const sortedProjects = projects.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+---
+
+<PageLayout title="Projects" description="Projects by Eric Koehli">
+  <div class="title">
+    <h1>Projects</h1>
+  </div>
+
+  <p>A collection of things I've built and worked on.</p>
+
+  <ProjectList projects={sortedProjects} />
+</PageLayout>

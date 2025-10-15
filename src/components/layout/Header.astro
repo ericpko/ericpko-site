@@ -5,7 +5,12 @@ import ThemeToggle from '@/components/ui/ThemeToggle.astro'
 
 <header>
   <nav>
-    <a href="/">{themeConfig.site.title}</a>
+    <a href="/" class="site-title">{themeConfig.site.title}</a>
+    <div class="nav-links">
+      <a href="/projects">Projects</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </div>
     <ThemeToggle />
   </nav>
 </header>
@@ -17,12 +22,40 @@ import ThemeToggle from '@/components/ui/ThemeToggle.astro'
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
   }
   header a {
     font-weight: var(--font-weight-bold);
     color: var(--text-primary);
     text-decoration: none;
-    min-width: 3rem;
     display: inline-block;
+    transition: opacity 0.2s ease-out;
+  }
+  .site-title {
+    min-width: 3rem;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+  }
+  .nav-links a {
+    font-weight: var(--font-weight-normal);
+    font-size: var(--font-size-s);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    header a:hover {
+      opacity: 0.6;
+    }
+  }
+  @media (max-width: 640px) {
+    .nav-links {
+      gap: 0.75rem;
+    }
+    .nav-links a {
+      font-size: var(--font-size-xs);
+    }
   }
 </style>

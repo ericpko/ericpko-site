@@ -1,0 +1,42 @@
+---
+import '@/styles/global.css'
+import BaseHead from '@/components/layout/BaseHead.astro'
+import Footer from '@/components/layout/Footer.astro'
+import BackButton from '@/components/ui/BackButton.astro'
+import GradientMask from '@/components/ui/GradientMask.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { themeConfig } from '@/config'
+
+interface Props {
+  title: string
+  description?: string
+}
+
+const { title, description = themeConfig.site.description } = Astro.props
+---
+
+<BaseLayout title={`${title} · ${themeConfig.site.title}`} description={description} type="page">
+  <BaseHead title={`${title} · ${themeConfig.site.title}`} description={description} slot="head" />
+  <div class="page-container">
+    <main>
+      <div class="prose">
+        <GradientMask />
+        <BackButton />
+        <slot />
+      </div>
+    </main>
+    {themeConfig.general.footer && <Footer />}
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .page-container main {
+    flex: 1;
+  }
+</style>
