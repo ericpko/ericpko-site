@@ -1,6 +1,12 @@
 ---
-import PageLayout from '@/layouts/PageLayout.astro'
+import '@/styles/global.css'
+import BaseHead from '@/components/layout/BaseHead.astro'
+import Footer from '@/components/layout/Footer.astro'
+import BackButton from '@/components/ui/BackButton.astro'
+import GradientMask from '@/components/ui/GradientMask.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
 import ProjectList from '@/components/widgets/ProjectList.astro'
+import { themeConfig } from '@/config'
 import { getCollection } from 'astro:content'
 
 const projects = await getCollection('projects')
@@ -8,12 +14,32 @@ const projects = await getCollection('projects')
 const sortedProjects = projects.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 ---
 
-<PageLayout title="Projects" description="Projects by Eric Koehli">
-  <div class="title">
-    <h1>Projects</h1>
+<BaseLayout title={`Projects · ${themeConfig.site.title}`} description="Projects by Eric Koehli" type="page">
+  <BaseHead title={`Projects · ${themeConfig.site.title}`} description="Projects by Eric Koehli" slot="head" />
+  <div class="page-container">
+    <main>
+      <div class="prose">
+        <GradientMask />
+        <BackButton />
+        <div class="title">
+          <h1>Projects</h1>
+        </div>
+        <p>A collection of things I've built and worked on.</p>
+      </div>
+      <ProjectList projects={sortedProjects} />
+    </main>
+    {themeConfig.general.footer && <Footer />}
   </div>
+</BaseLayout>
 
-  <p>A collection of things I've built and worked on.</p>
+<style>
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
 
-  <ProjectList projects={sortedProjects} />
-</PageLayout>
+  .page-container main {
+    flex: 1;
+  }
+</style>
