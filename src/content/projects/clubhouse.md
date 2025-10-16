@@ -5,7 +5,7 @@ date: 2025-10-01
 link: 'https://clubhaus.club'
 ---
 
-ClubHaus is a full-featured club management platform designed for tennis and pickleball communities.
+Clubhouse is a full-featured club management platform designed for tennis and pickleball communities.
 
 ::link{url="https://clubhaus.club"}
 

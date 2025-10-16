@@ -62,6 +62,7 @@
 .prose p {
   line-height: 1.75;
   margin: 1.75em 0;
+  color: var(--text-body);
 }
 
 /* Tables */
@@ -221,6 +222,7 @@
   position: relative;
   padding-left: 0.5rem;
   margin-bottom: 0.5em;
+  color: var(--text-body);
 }
 
 .prose ul li:last-child {
@@ -256,6 +258,7 @@
   position: relative;
   padding-left: 0.25rem;
   margin-bottom: 0.5em;
+  color: var(--text-body);
 }
 
 .prose ol li:last-child {

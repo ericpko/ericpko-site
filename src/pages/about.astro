@@ -7,23 +7,54 @@ import PageLayout from '@/layouts/PageLayout.astro'
     <h1>About</h1>
   </div>
 
-  <p>
-    Hi, I'm Eric – a software engineer and developer who loves building elegant solutions to complex problems.
-    My passion lies in creating software that is both functional and beautiful.
-  </p>
+  <img src="/profile.jpeg" alt="Eric Koehli" class="profile-photo" />
 
   <p>
-    I specialize in software development and engineering, with a focus on building scalable and
-    maintainable applications. I enjoy working across the full stack and am always exploring new
-    technologies and methodologies.
+    Hi, I'm Eric — a Computer Science graduate from the University of Toronto with a passion for
+    web development and computer graphics. I love building software that solves real problems and
+    learning new technologies along the way.
   </p>
 
+  <h2>What I'm Building</h2>
   <p>
-    When I'm not coding, I enjoy staying current with the latest developments in technology,
-    contributing to open source projects, and writing about software development.
+    I'm currently working on <a href="https://clubhaus.club" target="_blank" rel="noopener noreferrer">Clubhouse</a>,
+    a full-stack web application for managing tennis and pickleball clubs. The project is teaching me
+    the complete web development experience: a Rust backend (Axum + PostgreSQL with sqlx), React frontend,
+    Clerk authentication, and self-hosting on my VPS using Dokploy. I chose Rust for its type safety,
+    performance, and language design, and I'm enjoying the challenge of mastering React and SQL.
+  </p>
+
+  <h2>Background</h2>
+  <p>
+    During my time at UofT, I worked on a capstone game design project where my team built
+    <a href="https://josh-teichro.itch.io/a-weathery-journey" target="_blank" rel="noopener noreferrer">A Weathery Journey</a>
+    in Unity. I also have a strong interest in computer graphics, including raytracing and physics-based animations.
+  </p>
+
+  <h2>What I'm Looking For</h2>
+  <p>
+    I'm actively seeking opportunities as a junior full-stack developer where I can contribute to
+    meaningful projects and continue growing my skills. I'm particularly drawn to roles that involve
+    modern web technologies, systems programming, or graphics work.
+  </p>
+
+  <h2>Beyond Code</h2>
+  <p>
+    When I'm not programming, I'm usually playing tennis or pickleball (which inspired Clubhouse!),
+    following the markets and learning about options trading, or exploring personal finance strategies.
   </p>
 
   <p>
     Feel free to <a href="/contact">reach out</a> if you'd like to connect or collaborate on a project.
   </p>
 </PageLayout>
+
+<style>
+  .profile-photo {
+    max-width: 180px;
+    height: auto;
+    border-radius: 12px;
+    margin: 1.5rem auto 2rem;
+    display: block;
+  }
+</style>
