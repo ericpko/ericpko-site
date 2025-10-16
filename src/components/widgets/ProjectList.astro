@@ -1,6 +1,7 @@
 ---
 import FormattedDate from '@/components/widgets/FormattedDate.astro'
 import { themeConfig } from '@/config'
+import '@/styles/list-layout.css'
 
 interface ProjectListProps {
   projects: Array<{
@@ -17,97 +18,34 @@ interface ProjectListProps {
 const { projects } = Astro.props as ProjectListProps
 ---
 
-<ul>
-  {
-    projects.map((project) => (
-      <li>
-        <div class="project-item">
-          <div class="project-header">
-            <h3 class="title">{project.data.title}</h3>
-            {project.data.link && (
-              <a href={project.data.link} class="external-link" target="_blank" rel="noopener noreferrer" aria-label="View project">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  <polyline points="15 3 21 3 21 9" />
-                  <line x1="10" y1="14" x2="21" y2="3" />
-                </svg>
-              </a>
-            )}
-          </div>
-          <p class="description">{project.data.description}</p>
-          <p class="date font-features">
-            <FormattedDate date={project.data.date} context="list" />
-          </p>
-        </div>
-      </li>
-    ))
-  }
-</ul>
-<div class="placeholder"></div>
-
-<style>
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .project-item {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  li:last-child .project-item {
-    border-bottom: none;
-  }
-
-  .project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .title {
-    margin: 0;
-    font-size: var(--font-size-m);
-    font-weight: var(--font-weight-bold);
-    color: var(--text-primary);
-  }
-
-  .external-link {
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    transition: color 0.2s ease-out;
-    text-decoration: none;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .external-link:hover {
-      color: var(--text-primary);
+<div class="list-container">
+  <ul>
+    {
+      projects.map((project) => (
+        <li>
+          <a href={`/projects/${project.id}/`}>
+            <div class={`item ${!themeConfig.date.dateOnRight ? 'date-left' : ''}`}>
+              {!themeConfig.date.dateOnRight && (
+                <p class="date font-features">
+                  <FormattedDate date={project.data.date} context="list" />
+                </p>
+              )}
+              <p class="title">{project.data.title}</p>
+              {themeConfig.date.dateOnRight && (
+                <div
+                  class={themeConfig.general.postListDottedDivider ? 'dotted-divider' : 'divider'}
+                />
+              )}
+              {themeConfig.date.dateOnRight && (
+                <p class="date font-features">
+                  <FormattedDate date={project.data.date} context="list" />
+                </p>
+              )}
+            </div>
+          </a>
+        </li>
+      ))
     }
-  }
-
-  .description {
-    margin: 0 0 0.75rem 0;
-    color: var(--text-primary);
-    line-height: 1.6;
-  }
-
-  .date {
-    margin: 0;
-    color: var(--text-tertiary);
-    opacity: 0.75;
-    font-size: var(--font-size-s);
-    letter-spacing: var(--spacing-s);
-  }
-
-  .placeholder {
-    height: 3rem;
-  }
-</style>
+  </ul>
+  <div class="placeholder"></div>
+</div>

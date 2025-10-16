@@ -1,0 +1,133 @@
+/* Shared styles for PostList and ProjectList components */
+
+.list-container ul {
+  padding: 0;
+  margin: 0;
+  margin-left: 0 !important;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Override .prose bullet and spacing styles */
+.list-container ul li {
+  padding-left: 0 !important;
+  position: static !important;
+}
+
+.list-container ul li::before {
+  content: none !important;
+}
+
+.list-container a {
+  color: var(--text-primary);
+  display: block;
+  text-decoration: none;
+  transition: opacity 0.15s ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .list-container ul:hover a {
+    opacity: 0.4;
+  }
+
+  .list-container ul:hover a:hover {
+    opacity: 1;
+  }
+
+  .list-container ul:hover a:hover .divider {
+    background-color: var(--text-tertiary);
+    opacity: 0.75;
+  }
+
+  .list-container ul:hover a:hover .dotted-divider {
+    color: var(--text-secondary);
+  }
+
+  .list-container ul:hover a:hover .date {
+    color: var(--text-secondary);
+    opacity: 1;
+  }
+
+  .list-container ul:hover a:hover .external-link {
+    color: var(--text-primary);
+  }
+}
+
+.list-container .item {
+  height: 2.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.list-container .item.date-left {
+  justify-content: flex-start;
+}
+
+.list-container .item.date-left .title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.list-container .item.date-left .date {
+  margin-right: 0.75rem;
+}
+
+.list-container .title {
+  margin: 0;
+  flex-shrink: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-container .date {
+  margin: 0;
+  color: var(--text-secondary);
+  opacity: 0.75;
+  letter-spacing: var(--spacing-s);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.list-container .divider {
+  flex: 1 1 auto;
+  min-width: 3rem;
+  margin: 0 0.25rem;
+  height: 0.5px;
+  background-color: var(--border);
+}
+
+.list-container .dotted-divider {
+  flex: 1 1 3rem;
+  min-width: 3rem;
+  max-width: 100%;
+  text-align: end;
+  letter-spacing: 5px;
+  height: 1.675rem;
+  overflow: hidden;
+  color: var(--text-tertiary);
+  opacity: 0.75;
+}
+
+.list-container .dotted-divider::after {
+  content: '·····························································································································································';
+  pointer-events: none;
+}
+
+.list-container .external-link {
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease-out;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.list-container .placeholder {
+  height: 3rem;
+}
