@@ -55,7 +55,7 @@ import PageLayout from '@/layouts/PageLayout.astro'
   .contact-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
     margin-top: 2rem;
   }
 
@@ -63,16 +63,6 @@ import PageLayout from '@/layouts/PageLayout.astro'
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    padding: 1rem;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    transition: border-color 0.2s ease-out;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .contact-item:hover {
-      border-color: var(--text-tertiary);
-    }
   }
 
   .contact-icon {
