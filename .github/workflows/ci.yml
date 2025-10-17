@@ -57,7 +57,7 @@ jobs:
         run: bun lint
 
       - name: Build project
-        run: bun build
+        run: bun run build
 
   auto-merge:
     name: Auto Merge
